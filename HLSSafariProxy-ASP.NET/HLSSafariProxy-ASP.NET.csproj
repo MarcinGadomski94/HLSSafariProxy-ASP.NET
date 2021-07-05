@@ -6,9 +6,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Content Include="..\LICENSE">
+        <Link>LICENSE</Link>
+      </Content>
       <Content Include="..\README.md">
         <Link>README.md</Link>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NSwag.AspNetCore" Version="13.11.3" />
     </ItemGroup>
 
 </Project>

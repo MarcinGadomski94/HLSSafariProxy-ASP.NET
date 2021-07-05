@@ -1,11 +1,13 @@
 # HLSSafariProxy-ASP.NET
 
+##Introduction
 This repository contains an example code for ASP.NET Core API which will handle the proxy solution in order to allow to play the videos stored in Azure Media Services on iOS devices, as well as older Android devices.
 
 It will follow the blog post originally made by **Mingfey Yan**. The link to the blogpost: https://azure.microsoft.com/en-us/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/
 
-You can find that blogpost below:
+You can find that blog post below:
 
+> ## How to make token authorized AES encrypted HLS stream working in Safari
 > Azure Media Services provides capability for customers to generate an AES encrypted HLS stream with Token authorization configured on the AES key retrieval. However, as we know, Safari handles HLS playlist and key retrieval within the native stack and there is no easy way for developers to intercept the key request and add in Token into the 2nd level HLS Playlist. Here is a proposed solution if you do some magic on your authentication module to make this work. Below is an diagram to illustrate how this solution works:
 > 
 > 
@@ -61,6 +63,12 @@ As the code example attached in **Mingfey Yan** post is using WebAPI as its host
 
 It is important to mention that [example code](https://pastebin.com/kq7Zfw88) from [StackOverflow post](https://stackoverflow.com/questions/40506415/azure-media-player-does-not-work-with-aes-protection-on-iphone) user [Eugene D. Gubenkov](https://stackoverflow.com/users/1319147/eugene-d-gubenkov) was also a big help during the creation of this solution
 
+## Credits
+* **Mingfey Yan** for original blog post
+* **Eugene D. Gubenkov** for his piece of code which is used within this example
+* **Ebraheem Al-Muneyeer** from *Azure Media & Communication Services* for providing support on my case and directing me in the right direction
+
+##Important mentions
 In the example, we've made few adjustments in order to make it to work:
 * When fetching the top and second manifest for this method, URL for the manifest must contain **format=m3u8-aapl** in it - for example 
   * https://teststreamurl.media.azure.net/71dd573d-dae9-4e02-a304-6d65a50f7f3f/videoname.ism/manifest(encryption=cbc,format=m3u8-aapl)
@@ -75,3 +83,8 @@ In the example, we've made few adjustments in order to make it to work:
 * Responses should be encoded in **UTF8**
 
 If you have proposals how the solution can be improved, you are welcome to contact me or write a post within this repository.
+
+##Running the solution
+In order to run the solution, you need to have .NET 5 framework installed. 
+
+After running the solution, you can go to https://localhost:5001/swagger in order to see the endpoints and test them.
