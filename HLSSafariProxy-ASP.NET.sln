@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GIT", "GIT", "{C22765D6-7212-42C3-9854-841F0B204202}"
+ProjectSection(SolutionItems) = preProject
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HLSSafariProxy-ASP.NET", "HLSSafariProxy-ASP.NET\HLSSafariProxy-ASP.NET.csproj", "{F8B83CCC-5EAE-41E9-B98E-672CB196ED22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8B83CCC-5EAE-41E9-B98E-672CB196ED22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B83CCC-5EAE-41E9-B98E-672CB196ED22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B83CCC-5EAE-41E9-B98E-672CB196ED22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B83CCC-5EAE-41E9-B98E-672CB196ED22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
