@@ -68,7 +68,7 @@ It is important to mention that [example code](https://pastebin.com/kq7Zfw88) fr
 * **Eugene D. Gubenkov** for his piece of code which is used within this example
 * **Ebraheem Al-Muneyeer** from *Azure Media & Communication Services* for providing support on my case and directing me in the right direction
 
-##Important mentions
+## Important mentions
 In the example, we've made few adjustments in order to make it to work:
 * When fetching the top and second manifest for this method, URL for the manifest must contain **format=m3u8-aapl** in it - for example 
   * https://teststreamurl.media.azure.net/71dd573d-dae9-4e02-a304-6d65a50f7f3f/videoname.ism/manifest(encryption=cbc,format=m3u8-aapl)
@@ -84,7 +84,14 @@ In the example, we've made few adjustments in order to make it to work:
 
 If you have proposals how the solution can be improved, you are welcome to contact me or write a post within this repository.
 
-##Running the solution
+## Running the solution
 In order to run the solution, you need to have .NET 5 framework installed. 
 
 After running the solution, you can go to https://localhost:5001/swagger in order to see the endpoints and test them.
+
+## Example of the solution
+
+Working example of the working solution is implemented within **Swap Language** website (https://swaplanguage.com).
+
+Go to below example link to check the working solution:
+[Best Danish Films To Watch](https://swaplanguage.com/online-lessons/single/bd45aaa6-a688-4516-2cce-08d9326171fa)
