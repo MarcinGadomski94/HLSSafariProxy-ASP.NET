@@ -1,6 +1,6 @@
 # HLSSafariProxy-ASP.NET
 
-##Introduction
+## Introduction
 This repository contains an example code for ASP.NET Core API which will handle the proxy solution in order to allow to play the videos stored in Azure Media Services on iOS devices, as well as older Android devices.
 
 It will follow the blog post originally made by **Mingfey Yan**. The link to the blogpost: https://azure.microsoft.com/en-us/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/
@@ -13,7 +13,7 @@ You can find that blog post below:
 > 
 > ![GitHub Logo](./architecture_thumb.png)
 >
-> ##Explanation for each step:
+> ## Explanation for each step:
 > 1. Customer sends request to your authentication system with video ID. it is important that you have some mapping between video ID and the actual streaming URL.
 > 2. Your authentication system will authenticate user, and request top Playlist from Azure Media Services with video streaming URL. Let’s say the streaming URL looks like this: *(format=m3u8-aapl)*.
 > 3. Azure Media Services will return the top Playlist to the Authentication system. The top playlist looks like this:
