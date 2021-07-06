@@ -131,6 +131,8 @@ In order to run the solution, you need to have .NET 5 framework installed.
 
 After running the solution, you can go to https://localhost:5001/swagger in order to see the endpoints and test them.
 
+You can also access the solution going [here](https://hlssafariproxy-aspnet.azurewebsites.net/swagger/)
+
 ## Example of the solution
 
 Working example of the working solution is implemented within **Swap Language** website (https://swaplanguage.com).
