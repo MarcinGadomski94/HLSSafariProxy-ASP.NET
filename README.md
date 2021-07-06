@@ -70,6 +70,48 @@ It is important to mention that [example code](https://pastebin.com/kq7Zfw88) fr
 
 ## Important mentions
 In the example, we've made few adjustments in order to make it to work:
+* In order for this solution to work with the video player, you need to exchange the **source URL** from the manifest to the top level proxy endpoint, for example if we take:
+  * **http://amssamples.streaming.mediaservices.windows.net/830584f8-f0c8-4e41-968b-6538b9380aa5/TearsOfSteelTeaser.ism/manifest** as original manifest URL
+  * and
+  * **https://localhost:5001/AzureMediaServicesProxy/GetTopLevelPlaylist?playbackUrl="http%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F830584f8-f0c8-4e41-968b-6538b9380aa5%2FTearsOfSteelTeaser.ism%2Fmanifest&token=Bearer%3Dyour_token_here** as top level manifest proxy url
+  * the end result of video element should look similar to one below:
+  ```html
+    <html>
+    <head>
+        <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
+        <script src="//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+    </head>
+    <body>
+      <video
+              id="id_of_the_player"
+              class="azuremediaplayer amp-default-skin w-full h-full"
+              controls
+              controlsList="nodownload"
+              oncontextmenu="return false;"
+              poster="https://thumbnail_uri.com/thumbnail.webp">
+              <source src="https://localhost:5001/AzureMediaServicesProxy/GetTopLevelPlaylist?playbackUrl="http%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F830584f8-f0c8-4e41-968b-6538b9380aa5%2FTearsOfSteelTeaser.ism%2Fmanifest&token=Bearer%3Dyour_token_here" type="application/vnd.apple.mpegURL" data-setup="{"disableUrlRewriter": true}"/>
+              <source src="http://amssamples.streaming.mediaservices.windows.net/830584f8-f0c8-4e41-968b-6538b9380aa5/TearsOfSteelTeaser.ism/manifest" type="application/vnd.ms-sstr+xml" data-setup="{"protectionInfo": [{"type": "AES", authenticationToken": Bearer=" + your_token_here + ""}]}"/>
+      </video>
+    </body>
+    </html>
+    ```
+  * and JavaScript code to load the player should similar to the one below:
+  ```javascript
+      var player = amp("id_of_the_player", {
+                techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"],
+                "nativeControlsForTouch": false,
+                autoplay: false,
+                controls: true,
+                logo: {
+                    enabled: false
+                },
+                fluid: true,
+                disablePictureInPicture: false
+            });
+        }
+  ```
+  * **Please be aware of the message that LATEST version of Azure Media Player should NOT be used in production environments, find official message from Microsoft documentation below:**
+    * _You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player; for example replace `latest` with `1.0.0`. Azure Media Player versions can be queried from [here](https://amp.azure.net/libs/amp/latest/docs/changelog.html)._
 * When fetching the top and second manifest for this method, URL for the manifest must contain **format=m3u8-aapl** in it - for example 
   * https://teststreamurl.media.azure.net/71dd573d-dae9-4e02-a304-6d65a50f7f3f/videoname.ism/manifest(encryption=cbc,format=m3u8-aapl)
   * or
